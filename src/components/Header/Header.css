@@ -1,0 +1,38 @@
+.header-logo {
+    width:100px;
+    height: 100px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.header {
+    /* margin: 0 2.5rem; */
+    padding: .5rem 0;
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+    background-color: #042441;
+}
+
+.headerLeft, .headerRight {
+    display: flex;
+    align-items: center;
+
+}
+
+a > span{
+    margin: 0 30px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: aqua;
+}
+
+a > span:hover {
+    color: red;
+    transition: all 0.5;
+}
+
+
+.user__avatar {
+    font-size: 2rem;
+}
