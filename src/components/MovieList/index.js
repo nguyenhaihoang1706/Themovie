@@ -4,20 +4,21 @@ import "./MovieList.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function MoiveList() {
+function MovieList() {
   const [movieList, setMovieList] = useState([]);
   const { type } = useParams();
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
+
   useEffect(() => {
-    getData()
-  }, [type])
+    getData();
+  }, [type]);
 
   const getData = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/movies/${
+    fetch(
+      `https://api.themoviedb.org/3/movie/${
         type ? type : "popular"
       }?api_key=e4dd5cfb3ee4eb5f2effb2545ac280b7`
     )
@@ -40,4 +41,4 @@ function MoiveList() {
   );
 }
 
-export default MoiveList;
+export default MovieList;

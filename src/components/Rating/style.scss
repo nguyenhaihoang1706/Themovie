@@ -1,0 +1,21 @@
+.circleRating {
+    background-color: var(--black);
+    border-radius: 50%;
+    padding: 2px;
+    .CircularProgressbar-text {
+        font-size: 34px;
+        font-weight: 700;
+        fill: var(--black);
+    }
+    .CircularProgressbar-trail {
+        stroke: transparent;
+    }
+}
+.ant-progress-text{
+    color: white !important;
+    
+}
+
+.ant-progress-circle-gradient{
+    background: var(--black-lighter)!important;
+}

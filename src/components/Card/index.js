@@ -18,14 +18,15 @@ function Card({ movie }) {
       {isLoading ? (
         <div className="card">
           <Skeleton
+            style={{ backgroundColor: "white", width: "100%", height: "100%" }}
             active
-            title={{ width: 300 }}
+            width={300}
             paragraph={{ rows: 4, width: [500, 500, 500, 100] }}
           ></Skeleton>
         </div>
       ) : (
         <Link
-          to={`movie/${movie.id}`}
+          to={`/movie/${movie.id}`}
           style={{ textDecoration: "none", color: "white" }}
         >
           <div className="card">
@@ -51,7 +52,7 @@ function Card({ movie }) {
                 </span>
               </div>
               <div className="card__description   ">
-                {movie ? movie.overview.splice(0, 118) + "..." : ""}
+                {/* {movie ? movie.overview.splice(0, 118) + "..." : ""} */}
               </div>
             </div>
           </div>
