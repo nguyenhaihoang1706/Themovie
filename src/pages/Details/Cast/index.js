@@ -6,7 +6,7 @@ import "./style.scss";
 import ContentWrap from "../../../components/ContentWrap/ContentWrap";
 import Img from "../../../components/lazyLoadImg/Img";
 import avatar from "../../../assets/Moviex-images/avatar.png";
-import { Card } from "antd";
+import { Card, Carousel } from "antd";
 
 const Cast = ({ data, loading }) => {
   const { url } = useSelector((state) => state.home);
@@ -30,15 +30,21 @@ const Cast = ({ data, loading }) => {
               ? url.profile + item.profile_path
               : avatar;
             return (
-              <Card style={{ boxShadow: " 0 2px 8px rgba(0,0,0,.1)" }}>
-                <div key={item.id} className="listItem">
-                  <div className="profileImg">
-                    <Img src={imgUrl} />
+              <Carousel autoplay>
+                <Card
+                  style={{
+                    boxShadow: " 0 2px 8px rgba(0,0,0,.1)",
+                  }}
+                >
+                  <div key={item.id} className="listItem">
+                    <div className="profileImg">
+                      <Img src={imgUrl} />
+                    </div>
+                    <div className="name">{item.name}</div>
+                    <div className="character">{item.character}</div>
                   </div>
-                  <div className="name">{item.name}</div>
-                  <div className="character">{item.character}</div>
-                </div>
-              </Card>
+                </Card>
+              </Carousel>
             );
           })}
         </div>

@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import MovieList from "./components/MovieList";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/404";
+import SignIn from "./pages/SignIn";
+import SearchResult from "./pages/searchResult";
 import Detail from "./pages/Details";
-import SearchResult from "./pages/Explore";
-
+import Explore from "./pages/Explore";
 import React, { useEffect, useState } from "react";
 import { fetchDataFromApi } from "./utils/api";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { useSelector, useDispatch } from "react-redux";
-import SignIn from "./pages/SignIn";
+
 function App() {
   const dispatch = useDispatch();
   const url = useSelector((state) => state.home);
@@ -37,7 +37,7 @@ function App() {
     let allGenres = {};
 
     endPoints.forEach((url) => {
-      return promises.push(fetchDataFromApi(`/genre/${url}/list`));
+      promises.push(fetchDataFromApi(`/genre/${url}/list`));
     });
     const data = await Promise.all(promises);
     data.map(({ genres }) => {
@@ -53,6 +53,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/:mediaType/:id" element={<Detail />} />
           <Route path="/search/:query" element={<SearchResult />} />
+          <Route path="/explore/:mediaType" element={<Explore />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>

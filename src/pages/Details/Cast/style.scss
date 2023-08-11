@@ -7,13 +7,14 @@
         color: var(--black);
         margin-bottom: 25px;
         margin: 20px auto;
+        padding-left: 50px;
     }
     .listItems {
         display: flex;
-        gap: 20px;
+        max-width: 1400px;
+        margin: 0 auto !important;
+        gap:10px;
         overflow-y: hidden;
-        margin-right: -20px;
-        margin-left: -20px;
         padding: 0 20px;
         @include md {
             margin: 0;

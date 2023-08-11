@@ -18,33 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
-const MENU_ITEMS = [
-  {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
-    title: "English",
-    children: {
-      title: "Language",
-      data: [
-        { code: "en", title: "English" },
-        { code: "vi", title: "Tiếng Việt" },
-      ],
-    },
-  },
-];
-
 const Header = () => {
-  const currentUser = true;
-
-  //handle logic
-  const handleMenuChange = (menuItem) => {
-    switch (menuItem.type) {
-      case "language":
-        //Handle change language
-        break;
-      default:
-    }
-  };
-
   const [show, setShow] = useState("top");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -110,35 +84,34 @@ const Header = () => {
       <ContentWrap>
         <div className="logo" onClick={() => navigate("/")}>
           <img src={logo} alt="" />
-          <ul className="menuItems">
-            <li className="menuItem" onClick={() => navigationHandler("movie")}>
-              Movies
-            </li>
-            <li className="menuItem" onClick={() => navigationHandler("tv")}>
-              TV Shows
-            </li>
-          </ul>
         </div>
-        <div className="menuItems">
-          <ul className="menuItems">
-            <li className="menuItem" onClick={() => navigate("/signin")}>
-              <FontAwesomeIcon
-                style={{ paddingRight: 5, fontSize: 24 }}
-                icon={faUserCircle}
-              />
-              Login
-            </li>
-            <Tippy delay={[0, 200]} content="Language" placement="bottom">
-              <li className="menuItem">
-                <FontAwesomeIcon icon={faLanguage} />
-              </li>
-            </Tippy>
+        <ul className="menuItemsLeft">
+          <li className="menuItem" onClick={() => navigationHandler("movie")}>
+            Movies
+          </li>
+          <li className="menuItem" onClick={() => navigationHandler("tv")}>
+            TV Shows
+          </li>
+        </ul>
 
+        <ul className="menuItems">
+          <li className="menuItem" onClick={() => navigate("/signin")}>
+            <FontAwesomeIcon
+              style={{ paddingRight: 5, fontSize: 24 }}
+              icon={faUserCircle}
+            />
+            Login
+          </li>
+          <Tippy delay={[0, 200]} content="Language" placement="bottom">
             <li className="menuItem">
-              <HiOutlineSearch onClick={openSearch} />
+              <FontAwesomeIcon icon={faLanguage} />
             </li>
-          </ul>
-        </div>
+          </Tippy>
+          <li className="menuItem">
+            <HiOutlineSearch onClick={openSearch} />
+          </li>
+        </ul>
+
         <div className="mobileMenuItems">
           <HiOutlineSearch onClick={openSearch} />
           {mobileMenu ? (

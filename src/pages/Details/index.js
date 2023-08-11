@@ -5,11 +5,12 @@ import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import Cast from "./Cast";
 import VideosSection from "./VideoSection";
+import Similar from "./Carousel/Similar";
+import Recomment from "./Carousel/Recomment";
 
 const Detail = () => {
   const { mediaType, id } = useParams();
 
-  console.log(mediaType);
   const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
   const { data: credits, loading: createLoading } = useFetch(
     `/${mediaType}/${id}/credits`
@@ -20,6 +21,8 @@ const Detail = () => {
       <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
       <Cast data={credits?.cast} loading={createLoading} />
       <VideosSection data={data} loading={loading} />
+      <Similar mediaType={mediaType} id={id} />
+      <Recomment mediaType={mediaType} id={id} />
     </div>
   );
 };

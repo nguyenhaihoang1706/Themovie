@@ -12,7 +12,6 @@ import Img from "../lazyLoadImg/Img";
 import PosterFallback from "../../assets/Moviex-images/no-poster.png";
 import Rating from "../Rating";
 import Genres from "../Genres";
-
 import "./style.scss";
 import { Skeleton } from "antd";
 
